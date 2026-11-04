@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер ТО</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🚗 Трекер ТО</h1>
+
+    <!-- Секция текущего пробега -->
+    <div class="mileage-section">
+        <label>Текущий пробег (км):</label>
+        <input type="number" id="mileageInput" placeholder="Введите пробег">
+        <button onclick="updateMileage()">Обновить</button>
+
+        <!-- отображение сохраненного пробега -->
+        <div class="current-mileage-display" id="currentMileageDisplay">
+            Сохранённый пробег: <strong>0</strong> км
+    </div>
+
+    <!-- Кнопка добавления -->
+    <button class="btn-add" onclick="openAddModal()">+ Добавить запись ТО</button>
+
+    <!-- Шапка таблицы -->
+    <div class="records-header">
+        <span>Название работы</span>
+        <span>Периодичность (км)</span>
+        <span>Пробег при замене</span>
+        <span>Дата замены</span>
+        <span>Статус</span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Список записей -->
+    <div id="recordsList">
+        <div class="empty-state">Нет записей. Добавьте первую запись!</div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Добавить запись ТО</h2>
+            <label>Название работы</label>
+            <input type="text" id="recordName" placeholder="Напр. Замена масла">
+
+            <label>Периодичность (км)</label>
+            <input type="number" id="recordInterval" placeholder="Напр. 10000">
+
+            <label>Пробег при последней замене (км)</label>
+            <input type="number" id="recordMileage" placeholder="Напр. 45000">
+
+            <label>Дата последней замены</label>
+            <input type="date" id="recordDate">
+
+            <input type="hidden" id="recordId" value="">
+
+            <button class="btn-save" onclick="saveRecord()">Сохранить</button>
+            <button class="btn-cancel" onclick="closeModal()">Отмена</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
